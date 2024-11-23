@@ -3,19 +3,19 @@ import { cn } from '@/utils/tw-merge'
 import { type ClassValue } from 'clsx'
 
 const {
-  type = 'primary',
+  btnType = 'primary',
   title,
   ...props
 } = defineProps<{
   class?: ClassValue
   title: string
-  type?: 'primary' | 'secondary' | 'danger'
+  btnType?: 'primary' | 'secondary' | 'danger'
 }>()
 
 const getClass = () => {
-  if (type === 'secondary') return 'bg-secondary hover:bg-secondary/80 active:bg-secondary'
+  if (btnType === 'secondary') return 'bg-secondary hover:bg-secondary/80 active:bg-secondary'
 
-  if (type === 'danger') return 'bg-danger hover:bg-danger/80 active:bg-danger'
+  if (btnType === 'danger') return 'bg-danger hover:bg-danger/80 active:bg-danger'
 
   return 'bg-primary hover:bg-primary/80 active:bg-primary'
 }
@@ -30,6 +30,7 @@ const getClass = () => {
         props.class,
       )
     "
+    v-bind="$attrs"
   >
     {{ title }}
   </button>

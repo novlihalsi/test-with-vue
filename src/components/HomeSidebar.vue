@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useStore } from '@/store'
+
+const store = useStore()
+
+const searchQuery = computed(() => store.state.searchQuery)
+
+const updateSearchQuery = (event: Event) => {
+  const target = event.target as HTMLInputElement
+  store.dispatch('setSearchQuery', target.value)
+}
+</script>
+
 <template>
   <div
     class="bg-surface border border-black rounded-md py-6 px-4 w-full h-fit hover:shadow-base lg:w-72"
@@ -7,6 +21,8 @@
     <input
       class="w-full border-black border p-2.5 focus:outline-none focus:shadow-base focus:bg-secondary active:shadow-base rounded-md"
       placeholder="Find Collection"
+      :value="searchQuery"
+      @input="updateSearchQuery"
     />
     <hr class="border-black my-4" />
     <h2 class="text-lg font-bold mb-2">About Collection</h2>
