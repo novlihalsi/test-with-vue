@@ -12,8 +12,8 @@ Before you begin, ensure you have the following installed:
 1. Clone the repository (if using Git):
 
 ```bash
-git clone <repository-url>
-cd <project-folder>
+git clone <https://github.com/novlihalsi/test-with-vue>
+cd <test-with-vue>
 ```
 
 2. Install dependencies:
